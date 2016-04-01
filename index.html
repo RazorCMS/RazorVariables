@@ -1,36 +1,51 @@
 ---
 layout: page
-description: "A Clean Blog Theme by Start Bootstrap"
+description: "Information about razor variables for
+experimental high energy physics."
 ---
 
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-    </a>
-    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
-</div>
-<hr>
-{% endfor %}
+\(
+\newcommand{\MR}{M_{\mathrm{R}}}
+\newcommand{\Rtwo}{\mathrm{R}^2}
+\newcommand{\R}{\mathrm{R}}
+\newcommand{\MRT}{M_{\mathrm{T}}^{\mathrm{R}}}
+\newcommand{\ETm}{E_{\mathrm{T}}^{\text{miss}}}
+\newcommand{\ptvec}{\vec{p}_{\mathrm{T}}}
+\newcommand{\ptvecmiss}{\vec{p}_{\mathrm{T}}^{\text{miss}}}
+\newcommand{\pt}{p_{\mathrm{T}}}
+\newcommand{\chiz}{\widetilde{\chi}^{0}}
+\)
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
-</ul>
-{% endif %}
+<p>The razor variables are useful tools in the search for
+<a href ="https://en.wikipedia.org/wiki/Supersymmetry"><i>supersymmetry</i></a>, a proposed symmetry of space-time that implies
+the existence of a new boson for every known fermion, and
+vice versa, at hadron colliders. The purpose of this page is to describe the variables and
+the general paradigm, provide code to calculate them for a variety of configurations,
+and collect references to papers and experimental results using these variables. 
+
+<h3>Description of razor variables</h3>
+The razor kinematic variables are motivated by the generic process of the pair production of two
+heavy supersymmetric particles (e.g., squarks or gluinos), each decaying to an
+undetected particle (the stable, weakly interacting lightest
+supersymmetric particle \(\chiz_1\)) plus visible particles. The \(\chiz_1\) escapes without detection, which leads to missing
+transverse momentum \(\ptvecmiss\).</p>
+
+<p>To calculate the canonical razor variables \(\MR\) and \(\Rtwo\), we first partition all the visible particles
+in the event into two categories, or megajets. The momenta of these two megajets are used to compute \(\MR\) and \(\MRT\), defined as
+\begin{align}
+\MR & \equiv \sqrt{(|\vec{p}_{1}|+|\vec{p}_{2}|)^2 -({p}^{1}_z+{p}^{2}_z)^2};\\
+\MRT & \equiv \sqrt{ \frac{\ETm(\pt^{1}+\pt^{2}) - \ptvecmiss
+\cdot (\ptvec^{\,1}+\ptvec^{\,2}) }{2}};
+\end{align}
+where \(\vec{p}_{i}\), \(\ptvec^{\,i}\), and
+\(p^{i}_z\) are the momentum, transverse momentum, and longitudinal
+momentum of the \(i\)th megajet, respectively, and \(\ETm\) is the magnitude of
+\(\ptvecmiss\).</p>
+
+<p>\(\MRT\) quantifies the transverse momentum imbalance, while
+\(\MR\) estimates the mass scale of new-physics particle
+production in the event. The squared razor dimensionless ratio \(\Rtwo\) is defined as
+\begin{equation}
+\Rtwo \equiv \left(\frac{\MRT}{\MR}\right)^2.
+\end{equation}
+</p>
