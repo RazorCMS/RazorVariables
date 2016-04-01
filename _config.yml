@@ -4,8 +4,8 @@ header-img: img/home-bg.jpg
 email: jduarte@caltech.edu
 copyright_name: Caltech
 description: "Information about razor variables for experimental high energy physics"
-#baseurl: "/startbootstrap-clean-blog-jekyll"
-baseurl: ""
+baseurl: "/startbootstrap-clean-blog-jekyll"
+#baseurl: ""
 url: "http://yourdomain.com"
 github_username:  RazorCMS/RazorVariables
 #email_username:  jduarte@caltech.edu
